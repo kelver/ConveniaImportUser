@@ -2,7 +2,7 @@
 
 ## Avaliação Técnica - Backend
 
-> Esta avaliação consiste em completar a API de colaboradores de uma empresa. 
+> Esta avaliação consiste em completar a API de colaboradores de uma empresa.
 > A aplicação está quase completa: Falta apenas a carga de colaboradores!
 > Esperamos avaliar sua melhor implementação para o contexto que estamos propondo.
 
@@ -11,10 +11,22 @@ Que tenha um excelente desenvolvimento :wink:
 ### Desafio
 
 > Esta é uma aplicação quase completa para a manipulação de colaboradores via API. Já temos a autenticação, alguns `Models` e rotas para visualizar e excluir colaboradores.
-
 > O desafio consiste em configurar esta aplicação e adicionar o envio de um arquivo CSV para criar os colaboradores no banco de dados e atualizar seus dados caso sejam submetidos novamente com novos dados.
-
 > Avaliaremos o seu Merge Request para este repositório, então capriche no seu desenvolvimento. Observaremos uso de boas práticas, testes e seus commits.
+
+### Configuração
+
+Após clonar o repositório e adentrar o diretório do projeto, execute:
+
+```shell
+cp .env.example .env
+touch database/database.sqlite
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan passport:install
+php vendor/bin/phpunit
+```
 
 ### User Story
 

@@ -24,13 +24,6 @@ class CreateEmployeesTable extends Migration
             $table->date('start_date');
             $table->timestamps();
         });
-
-        Schema::table('employees', function (Blueprint $table) {
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
     }
 
     /**
@@ -40,10 +33,6 @@ class CreateEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::table('employees', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-        });
-
         Schema::dropIfExists('employees');
     }
 }

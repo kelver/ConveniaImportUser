@@ -14,6 +14,6 @@ class EmployeePolicy
      */
     public function authorize(User $user, Employee $employee)
     {
-        return $user->id === $employee->user_id;
+        return $user->id == $employee->user_id;
     }
 }

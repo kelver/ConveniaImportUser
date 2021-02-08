@@ -32,7 +32,7 @@ class EmployeeControllerTest extends TestCase
 
         $this->get(route('employees.get'))
             ->assertOk()
-            ->assertExactJson(
+            ->assertJson(
                 $employees->map(function ($employee) {
                     return [
                         'id' => $employee->id,
@@ -69,7 +69,7 @@ class EmployeeControllerTest extends TestCase
 
         $this->get(route('employees.show', [$employee->id]),)
             ->assertOk()
-            ->assertExactJson([
+            ->assertJson([
                 'id' => $employee->id,
                 'user_id' => $employee->user_id,
                 'name' => $employee->name,
@@ -90,7 +90,7 @@ class EmployeeControllerTest extends TestCase
         ]);
 
         $this->get(route('employees.show', [$employee->id]))
-            ->assertStatus(500)
+            ->assertForbidden()
             ->assertSee('This action is unauthorized.');
     }
 
@@ -129,7 +129,7 @@ class EmployeeControllerTest extends TestCase
         ]);
 
         $this->delete(route('employees.destroy', [$employee->id]),)
-            ->assertStatus(500)
+            ->assertForbidden()
             ->assertSee('This action is unauthorized.');
 
         $this->assertDatabaseHas('employees', [
