@@ -87,6 +87,14 @@ De maneira que estas informações alimentem meu sistema pessoal
         E nada deve ser alterado na base de dados
 ```
 
+### Considerações
+
+* Executaremos algumas análises automáticas, como verificação de estilo (PSR12), PHPMD e Larastan para avaliá-lo. 
+* Avaliaremos tanto a cobertura como a qualidade dos testes
+* Um arquivo CSV pode ter 2 ou 2.000.000 de linhas. Seria interessante não processá-lo na requisição HTTP da API `#FIKDIK`  
+* Também estamos de olho no uso de boas práticas.
+
+
 ### Aguardamos seu Merge Request
 
 Convenia :purple_heart:
