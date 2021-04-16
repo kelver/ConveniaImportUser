@@ -12,7 +12,7 @@ Que tenha um excelente desenvolvimento :wink:
 
 > Esta é uma aplicação quase completa para a manipulação de colaboradores via API. Já temos a autenticação, alguns `Models` e rotas para visualizar e excluir colaboradores.
 > O desafio consiste em configurar esta aplicação e adicionar o envio de um arquivo CSV para criar os colaboradores no banco de dados e atualizar seus dados caso sejam submetidos novamente com novos dados.
-> Avaliaremos o seu Merge Request para este repositório, então capriche no seu desenvolvimento. Observaremos uso de boas práticas, testes e seus commits.
+> Faça um Fork deste repositório. Avaliaremos cuidadosamente o seu Merge Request, então capriche no seu desenvolvimento. Observaremos uso de boas práticas, testes e seus commits.
 
 ### Configuração
 
@@ -94,6 +94,7 @@ De maneira que estas informações alimentem meu sistema pessoal
 * Um arquivo CSV pode ter 2 ou 2.000.000 de linhas. Seria interessante não processá-lo na requisição HTTP da API `#FIKDIK`  
 * Também estamos de olho no uso de boas práticas.
 
+### Inclua seu nome e um email para contato na mensagem do Merge Request para que possamos entrar em contato.
 
 ### Aguardamos seu Merge Request
 
