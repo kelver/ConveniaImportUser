@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\{
+    API\UserController,
+    EmployeeController
+};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/register', [UserController::class, 'register'])->name('register');
+
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
@@ -23,12 +30,12 @@ Route::group(['middleware' => 'auth:api'], function () {
         return 'teste';
     })->name('teste');
 
-    Route::get('/employees', [\App\Http\Controllers\EmployeeController::class, 'get'])
+    Route::get('/employees', [EmployeeController::class, 'get'])
         ->name('employees.get');
 
-    Route::get('/employees/{employee}', [\App\Http\Controllers\EmployeeController::class, 'show'])
+    Route::get('/employees/{employee}', [EmployeeController::class, 'show'])
         ->name('employees.show');
 
-    Route::delete('/employees/{employee}', [\App\Http\Controllers\EmployeeController::class, 'destroy'])
+    Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])
         ->name('employees.destroy');
 });
