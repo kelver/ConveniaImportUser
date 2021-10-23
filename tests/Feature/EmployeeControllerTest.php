@@ -5,6 +5,10 @@ namespace Tests\Feature;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Laravel\Passport\Passport;
 use Tests\TestCase;
 
@@ -136,5 +140,15 @@ class EmployeeControllerTest extends TestCase
             'id' => $employee->id,
             'user_id' => $user->id
         ]);
+    }
+
+    /** @test */
+    public function user_import_csv_file()
+    {
+        Storage::fake('public');
+        $nameFile = Str::uuid() . '.csv';
+        $this->postJson(route('employees.post'), [
+            'file' => UploadedFile::fake()->createWithContent($nameFile, "Bob Wilson,bob@paopaocafe.com,13001647000,Salvador,BA,2020-01-15\n"),
+        ])->assertStatus(200);
     }
 }

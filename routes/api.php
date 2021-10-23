@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth:api'], function () {
         return 'teste';
     })->name('teste');
 
+    Route::post('/employees', [EmployeeController::class, 'store'])
+        ->name('employees.post');
+
     Route::get('/employees', [EmployeeController::class, 'get'])
         ->name('employees.get');
 
